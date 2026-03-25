@@ -47,3 +47,51 @@
 2026-03-25 11:32:57.561  WARN 16208 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
 2026-03-25 11:32:57.601  INFO 16208 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
 2026-03-25 11:32:57.607  INFO 16208 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2026-03-25 11:33:16.881  INFO 20692 --- [main] org.xinrui.Application                   : Starting Application using Java 17 on XR001-0005 with PID 20692 (D:\workarea\project\xinrui_java_report_quality_control\target\classes started by Administrator in D:\workarea\project\xinrui_java_report_quality_control)
+2026-03-25 11:33:16.883 DEBUG 20692 --- [main] org.xinrui.Application                   : Running with Spring Boot v2.7.0, Spring v5.3.20
+2026-03-25 11:33:16.883  INFO 20692 --- [main] org.xinrui.Application                   : No active profile set, falling back to 1 default profile: "default"
+2026-03-25 11:33:17.743  INFO 20692 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=67c67b6f-fd39-364b-8941-c1cc91772b90
+2026-03-25 11:33:17.748  INFO 20692 --- [main] o.x.c.l.p.SysPropertySourcePostProcessor : SysPropertySourcePostProcessor init.
+2026-03-25 11:33:17.754  INFO 20692 --- [main] o.x.c.l.p.SysPropertySourcePostProcessor : SysPropertySourcePostProcessor process @SysPropertySource bean.
+2026-03-25 11:33:17.779  WARN 20692 --- [main] o.x.c.l.p.SysPropertySourcePostProcessor : Not found @SysPropertySource on spring bean class.
+2026-03-25 11:33:17.989  INFO 20692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8079 (http)
+2026-03-25 11:33:17.990  INFO 20692 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.37] using APR version [1.7.4].
+2026-03-25 11:33:17.990  INFO 20692 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2026-03-25 11:33:17.990  INFO 20692 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2026-03-25 11:33:17.993  INFO 20692 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1u  30 May 2023]
+2026-03-25 11:33:18.000  INFO 20692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-25 11:33:18.001  INFO 20692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2026-03-25 11:33:18.133  INFO 20692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-25 11:33:18.133  INFO 20692 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1217 ms
+2026-03-25 11:33:18.193  WARN 20692 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2026-03-25 11:33:18.193  INFO 20692 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2026-03-25 11:33:18.198  INFO 20692 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@4001d8c1
+2026-03-25 11:33:18.390  WARN 20692 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2026-03-25 11:33:18.390  INFO 20692 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2026-03-25 11:33:18.577  INFO 20692 --- [main] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped "{ [/error], produces [text/html]}" onto org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2026-03-25 11:33:18.577  INFO 20692 --- [main] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped "{ [/error]}" onto org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2026-03-25 11:33:18.577  INFO 20692 --- [main] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped "{POST [/api/v1/quality-control/deepseek]}" onto org.xinrui.controller.QualityControlController#analyzeReport(DeepSeekRequestDTO)
+2026-03-25 11:33:18.577  INFO 20692 --- [main] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped "{GET [/api/v1/quality-control/test]}" onto org.xinrui.controller.QualityControlController#test()
+2026-03-25 11:33:18.577 DEBUG 20692 --- [main] .x.c.c.v.SysRequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2026-03-25 11:33:18.866  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 18 ms to scan 1 urls, producing 3 keys and 6 values 
+2026-03-25 11:33:18.886  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 9 ms to scan 1 urls, producing 4 keys and 9 values 
+2026-03-25 11:33:18.896  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 3 keys and 10 values 
+2026-03-25 11:33:18.898  WARN 20692 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+2026-03-25 11:33:18.907  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 9 ms to scan 1 urls, producing 1 keys and 5 values 
+2026-03-25 11:33:18.919  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 9 ms to scan 1 urls, producing 1 keys and 7 values 
+2026-03-25 11:33:18.927  INFO 20692 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 2 keys and 8 values 
+2026-03-25 11:33:18.930  WARN 20692 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+2026-03-25 11:33:20.136  INFO 20692 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Inconsistent constructor declaration on bean with name 'org.xinrui.core.launch.server.ServerInfo': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.xinrui.core.launch.server.ServerInfo(org.springframework.boot.autoconfigure.web.ServerProperties)
+2026-03-25 11:33:20.144  INFO 20692 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-03-25 11:33:20.266  INFO 20692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8079 (http) with context path ''
+2026-03-25 11:33:20.280  INFO 20692 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xinrui-rqc 192.168.3.159:8079 register finished
+2026-03-25 11:33:20.455  INFO 20692 --- [main] o.xinrui.core.launch.StartEventListener  : ---[XINRUI-RQC]---启动完成，当前使用的端口:[8079]，环境变量:[]---
+2026-03-25 11:33:20.469  INFO 20692 --- [main] org.xinrui.Application                   : Started Application in 5.168 seconds (JVM running for 6.062)
+2026-03-25 11:33:20.731  INFO 20692 --- [RMI TCP Connection(2)-192.168.100.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-25 11:33:20.731  INFO 20692 --- [RMI TCP Connection(2)-192.168.100.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-25 11:33:20.732  INFO 20692 --- [RMI TCP Connection(2)-192.168.100.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-25 11:40:43.620 DEBUG 20692 --- [http-nio-8079-exec-1] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
+2026-03-25 11:40:44.427 DEBUG 20692 --- [http-nio-8079-exec-4] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2026-03-25 11:40:44.749 DEBUG 20692 --- [http-nio-8079-exec-6] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2026-03-25 11:40:48.231 DEBUG 20692 --- [http-nio-8079-exec-7] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2026-03-25 11:48:45.466 DEBUG 20692 --- [http-nio-8079-exec-1] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
