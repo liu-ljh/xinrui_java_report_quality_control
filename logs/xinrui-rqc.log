@@ -96,3 +96,10 @@
 2026-03-25 11:40:48.231 DEBUG 20692 --- [http-nio-8079-exec-7] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
 2026-03-25 11:48:45.466 DEBUG 20692 --- [http-nio-8079-exec-1] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
 2026-03-25 11:58:09.539 DEBUG 20692 --- [http-nio-8079-exec-4] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
+2026-03-25 12:41:06.292 DEBUG 20692 --- [http-nio-8079-exec-6] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
+2026-03-25 14:06:09.453  WARN 20692 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2026-03-25 14:06:09.453  WARN 20692 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2026-03-25 14:06:09.453  WARN 20692 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2026-03-25 14:06:09.453  WARN 20692 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2026-03-25 14:06:09.494  INFO 20692 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2026-03-25 14:06:09.502  INFO 20692 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.

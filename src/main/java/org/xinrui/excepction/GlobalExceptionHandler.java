@@ -3,6 +3,7 @@ package org.xinrui.excepction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.xinrui.dto.ApiResponse;
 
@@ -46,14 +47,14 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // 4. 未知系统异常（预防性兜底）
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<Void>> handleException(Exception e) {
+    // 4. 空指针异常处理（新增）
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ApiResponse<Void>> handleNullPointerException(NullPointerException e) {
         // 记录详细错误（生产环境需脱敏日志）
         e.printStackTrace();
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                ApiResponse.fail(ApiResponse.ERROR, "系统内部错误: " + e.getMessage())
+        return ResponseEntity.badRequest().body(
+                ApiResponse.fail(ApiResponse.PARAM_ERROR, "数据异常: " + e.getMessage())
         );
     }
 
@@ -65,7 +66,18 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // 6. 业务异常辅助类（医疗质控专用）
+    // 6. 未知系统异常（预防性兜底）
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiResponse<Void>> handleException(Exception e) {
+        // 记录详细错误（生产环境需脱敏日志）
+        e.printStackTrace();
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+                ApiResponse.fail(ApiResponse.ERROR, "系统内部错误: " + e.getMessage())
+        );
+    }
+
+    // 7. 业务异常辅助类（医疗质控专用）
     public static class QualityException extends RuntimeException {
         private final int code;
 

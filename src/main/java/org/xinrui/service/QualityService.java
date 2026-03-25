@@ -97,7 +97,13 @@ public class QualityService {
             throw new IllegalArgumentException("消息内容类型不正确");
         }
 
-        return contentItem.getText();
+        // 添加对 getText() 的非空检查
+        String text = contentItem.getText();
+        if (text == null) {
+            throw new IllegalArgumentException("消息文本内容为空");
+        }
+
+        return text;
     }
 
     private String extractModelOutput(String responseJson) throws IOException {

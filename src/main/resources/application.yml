@@ -1,60 +1,10 @@
-server:
-  port: 8079
-  servlet:
-    multipart:
-      max-file-size: 5MB
-    context-path: /
+# 基础通用配置
+multipart:
+  max-file-size: 5MB  # 限制报告文件大小（医疗文本通常很小）
 
 spring:
-  config:
-    override-none: true
-    override-system-properties: false
   application:
     name: xinrui-rqc
-  cloud:
-    inetutils:
-      preferred-networks: 192.168.3
-    nacos:
-      discovery:
-        server-addr: 192.168.3.15:8848
-      config:
-        enabled: false
-  # Redis 配置已完全移除
+  profiles:
+    active: dev
 
-# 关闭健康检查中的 Redis
-management:
-  health:
-    redis:
-      enabled: false
-
-# ======== 安全配置 ========
-security:
-  log:
-    sensitive-data: false
-    redact:
-      - "report_text"
-
-# ======== DeepSeek API 配置 ========
-deepseek:
-  api-endpoint: https://api.deepseek.com/v1/chat/completions
-  api-key: ${DEEPSEEK_API_KEY:}
-
-# ======== 质控规则配置 ========
-quality:
-  min-report-length: 10
-  default-score: 85
-  timeout-ms: 5000
-
-# ======== 日志级别 ========
-logging:
-  level:
-    root: INFO
-    org.xinrui: DEBUG
-    com.medical.quality: DEBUG
-    org.apache.http: WARN
-    # 关闭 Redis 相关日志
-    org.springframework.data.redis: OFF
-    io.lettuce: OFF
-    com.alibaba.nacos: WARN
-  file:
-    name: logs/${spring.application.name}.log

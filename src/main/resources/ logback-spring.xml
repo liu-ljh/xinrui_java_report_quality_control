@@ -3,7 +3,7 @@
     <!-- 1. 日志输出路径（避免敏感数据写入磁盘） -->
     <property name="LOG_FILE" value="logs/medical-quality-control.log"/>
 
-    <!-- 2. 控制台日志（仅输出关键信息） -->
+    <!-- 2. 控制台日志（输出所有内容） -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
