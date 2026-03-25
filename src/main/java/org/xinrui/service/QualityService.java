@@ -83,6 +83,8 @@ public class QualityService {
     }
 
     private String extractReportText(DeepSeekRequestDTO request) {
+
+
         if (request.getMessages() == null || request.getMessages().isEmpty()) {
             throw new IllegalArgumentException("缺少消息内容");
         }
@@ -107,6 +109,8 @@ public class QualityService {
     }
 
     private String extractModelOutput(String responseJson) throws IOException {
+
+
         JsonNode rootNode = objectMapper.readTree(responseJson);
         if (!rootNode.has("choices") || rootNode.get("choices").isEmpty()) {
             throw new IOException("Invalid API response: missing 'choices' array");

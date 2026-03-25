@@ -8,3 +8,8 @@ spring:
   profiles:
     active: dev
 
+# ======== DeepSeek API 配置 ========
+deepseek:
+  api-endpoint: https://api.deepseek.com/v1/chat/completions
+  # 密钥必须从环境变量获取（绝对不写在配置文件中！）
+  api-key: ${DEEPSEEK_API_KEY:}  # 占位符，运行时由环境变量注入

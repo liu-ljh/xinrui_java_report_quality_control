@@ -27,6 +27,9 @@ public class DeepSeekClient {
     }
 
     public String callModel(String prompt, String model, Double temperature) throws IOException {
+
+        log.info("抵达callModel方法");
+
         HttpPost httpPost = new HttpPost(config.getApiEndpoint());
         httpPost.setHeader("Content-Type", "application/json");
         httpPost.setHeader("Authorization", "Bearer " + config.getApiKey());
@@ -52,7 +55,7 @@ public class DeepSeekClient {
                 log.error("DeepSeek API error: Status {}, Response: {}", statusCode, errorResponse);
                 throw new IOException("DeepSeek API error: " + response.getStatusLine() + ", Response: " + errorResponse);
             }
-
+            log.info("结束callModel方法");
             return EntityUtils.toString(response.getEntity());
         }
     }
