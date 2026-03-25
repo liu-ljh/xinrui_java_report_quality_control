@@ -95,3 +95,4 @@
 2026-03-25 11:40:44.749 DEBUG 20692 --- [http-nio-8079-exec-6] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
 2026-03-25 11:40:48.231 DEBUG 20692 --- [http-nio-8079-exec-7] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
 2026-03-25 11:48:45.466 DEBUG 20692 --- [http-nio-8079-exec-1] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
+2026-03-25 11:58:09.539 DEBUG 20692 --- [http-nio-8079-exec-4] .x.c.c.v.SysRequestMappingHandlerMapping : Mapped to org.xinrui.controller.QualityControlController#test()
