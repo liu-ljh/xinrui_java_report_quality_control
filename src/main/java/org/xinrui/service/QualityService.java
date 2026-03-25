@@ -15,6 +15,7 @@ import org.xinrui.excepction.GlobalExceptionHandler;
 import org.xinrui.service.model.QualityResult;
 import org.xinrui.util.TextSanitizer;
 import org.xinrui.excepction.*;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -34,11 +35,12 @@ public class QualityService {
 
     public QualityResult analyzeReport(DeepSeekRequestDTO request) {
 
+        // 1. 校验消息内容是否为空
         if (request.getMessages() == null || request.getMessages().isEmpty()) {
             throw new GlobalExceptionHandler.QualityException(ApiResponse.PARAM_ERROR, "消息内容为空");
         }
 
-
+        // 2. 提取报告文本
         String reportText = extractReportText(request);
         if (!TextSanitizer.isLengthValid(reportText, ruleConfig.getMinReportLength())) {
             throw new GlobalExceptionHandler.QualityException(
@@ -47,27 +49,23 @@ public class QualityService {
             );
         }
 
-
-
-
         // 3. 文本脱敏
         String sanitizedText = TextSanitizer.sanitize(reportText);
 
-        // 4. 构建医疗质控专用Prompt（关键！）
-        String prompt = String.format(
-                "你是一名资深医疗质控专家。请分析以下报告内容，严格按JSON格式输出，禁止额外解释：\n" +
-                        "{\n" +
-                        "  \"score\": \"0-100分，基于完整性、逻辑性、合规性评分\",\n" +
-                        "  \"summary\": \"问题类型（过诊/少字/报告不完整/其他）\",\n" +
-                        "  \"issues\": [{\"type\": \"问题类型\", \"detail\": \"具体描述\"}],\n" +
-                        "  \"suggestions\": [\"具体修改建议\"]\n" +
-                        "}\n" +
-                        "报告内容：%s",
-                sanitizedText
-        );
+        // 4. 构建 Prompt
+        // 逻辑：如果 request.getSystem() 不为空，则使用它作为前缀，否则使用默认的前缀
+        // 格式：[System字段内容] + "报告内容为：" + [脱敏后的报告文本]
+        String systemPrompt = request.getSystem();
+        if (systemPrompt == null || systemPrompt.trim().isEmpty()) {
+            // 如果前端未传 system，这里可以设置一个默认值，或者直接设为空字符串
+            systemPrompt = "你是一个专业的医疗质控专家，请对下面医疗报告进行质控，并给出修改建议";
+        }
+
+        String prompt = systemPrompt + "报告内容为：" + sanitizedText;
 
         try {
-            // 5. 调用DeepSeek API（使用前端传入的model参数）
+            // 5. 调用DeepSeek API
+            // 注意：这里假设 deepSeekClient.callModel 接受完整的 prompt 字符串
             String responseJson = deepSeekClient.callModel(prompt, request.getModel(), request.getTemperature());
 
             // 6. 提取模型原始输出

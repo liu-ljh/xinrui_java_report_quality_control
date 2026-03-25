@@ -1,0 +1,13 @@
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\core\tool\jackson\AbstractReadWriteJackson2HttpMessageConverter.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\Application.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\service\model\ReportText.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\config\DeepSeekConfig.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\controller\QualityControlController.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\service\QualityService.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\util\TextSanitizer.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\dto\DeepSeekRequestDTO.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\excepction\GlobalExceptionHandler.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\config\QualityRuleConfig.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\client\DeepSeekClient.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\dto\ApiResponse.java
+D:\workarea\project\xinrui_java_report_quality_control\src\main\java\org\xinrui\service\model\QualityResult.java

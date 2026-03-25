@@ -1,6 +1,6 @@
 package org.xinrui.service.model;
 
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.Size;
 import lombok.Data;
 
 /**
