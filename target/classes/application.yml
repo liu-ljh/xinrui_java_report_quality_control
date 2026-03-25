@@ -1,0 +1,32 @@
+server:
+  port: 8079
+  servlet:
+    multipart:
+      max-file-size: 5MB  # 限制报告文件大小（医疗文本通常很小）
+
+# ======== 安全配置 ========
+security:
+  # 严格禁止敏感数据日志
+  log:
+    sensitive-data: false
+    redact:
+      - "report_text"  # 自动脱敏日志中的报告文本
+
+# ======== DeepSeek API 配置 ========
+deepseek:
+  api-endpoint: https://api.deepseek.com/v1/chat/completions
+  # 密钥必须从环境变量获取（绝对不写在配置文件中！）
+  api-key: ${DEEPSEEK_API_KEY:}  # 占位符，运行时由环境变量注入
+
+# ======== 质控规则配置 ========
+quality:
+  min-report-length: 10  # 报告最小长度（字符）
+  default-score: 85       # 未发现问题时的默认分数
+  timeout-ms: 5000        # API 调用超时（毫秒）
+
+# ======== 日志级别 ========
+logging:
+  level:
+    root: INFO
+    com.medical.quality: DEBUG  # 仅调试核心业务
+    org.apache.http: WARN       # HTTP 客户端日志降级
