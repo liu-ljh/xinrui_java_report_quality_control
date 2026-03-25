@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "quality")
 public class QualityRuleConfig {
-    private int minReportLength = 10; // 默认最小长度
+    private int minReportLength = 1; // 默认最小长度
     private int defaultScore = 85;     // 未发现问题默认分
     private int timeoutMs = 100000;      // API超时(毫秒)
 

@@ -8,6 +8,6 @@ import lombok.Data;
  */
 @Data
 public class ReportText {
-    @Size(min = 10, message = "报告内容必须≥10字符")
+
     private String text;
 }
