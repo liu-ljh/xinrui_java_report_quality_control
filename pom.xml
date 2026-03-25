@@ -58,6 +58,19 @@
           <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
           <groupId>com.alibaba.cloud</groupId>
         </exclusion>
+        <!-- 新增：排除 Redis 相关依赖 -->
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-redis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.xinrui</groupId>
+          <artifactId>xinrui-starter-auth</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.xinrui</groupId>
+          <artifactId>xinrui-starter-jwt</artifactId>
+        </exclusion>
         <!-- 移除以下排除 -->
         <!--
         <exclusion>

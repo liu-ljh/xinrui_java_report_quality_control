@@ -2,7 +2,8 @@ server:
   port: 8079
   servlet:
     multipart:
-      max-file-size: 5MB  # 限制报告文件大小（医疗文本通常很小）
+      max-file-size: 5MB
+    context-path: /
 
 spring:
   config:
@@ -18,42 +19,42 @@ spring:
         server-addr: 192.168.3.15:8848
       config:
         enabled: false
-  redis:
-    host: 192.168.3.15  # Redis服务器地址
-    port: 6379          # Redis端口
-    password:          # Redis密码（如果有）
-    database: 0         # Redis数据库索引
-    timeout: 3000ms    # 连接超时时间
-    lettuce:
-      pool:
-        max-active: 8   # 连接池最大连接数
-        max-wait: -1ms  # 连接池最大阻塞等待时间
-        max-idle: 8     # 连接池中的最大空闲连接
-        min-idle: 0     # 连接池中的最小空闲连接
+  # Redis 配置已完全移除
+
+# 关闭健康检查中的 Redis
+management:
+  health:
+    redis:
+      enabled: false
 
 # ======== 安全配置 ========
 security:
-  # 严格禁止敏感数据日志
   log:
     sensitive-data: false
     redact:
-      - "report_text"  # 自动脱敏日志中的报告文本
+      - "report_text"
 
 # ======== DeepSeek API 配置 ========
 deepseek:
   api-endpoint: https://api.deepseek.com/v1/chat/completions
-  # 密钥必须从环境变量获取（绝对不写在配置文件中！）
-  api-key: ${DEEPSEEK_API_KEY:}  # 占位符，运行时由环境变量注入
+  api-key: ${DEEPSEEK_API_KEY:}
 
 # ======== 质控规则配置 ========
 quality:
-  min-report-length: 10  # 报告最小长度（字符）
-  default-score: 85       # 未发现问题时的默认分数
-  timeout-ms: 5000        # API 调用超时（毫秒）
+  min-report-length: 10
+  default-score: 85
+  timeout-ms: 5000
 
 # ======== 日志级别 ========
 logging:
   level:
     root: INFO
-    com.medical.quality: DEBUG  # 仅调试核心业务
-    org.apache.http: WARN       # HTTP 客户端日志降级
+    org.xinrui: DEBUG
+    com.medical.quality: DEBUG
+    org.apache.http: WARN
+    # 关闭 Redis 相关日志
+    org.springframework.data.redis: OFF
+    io.lettuce: OFF
+    com.alibaba.nacos: WARN
+  file:
+    name: logs/${spring.application.name}.log
