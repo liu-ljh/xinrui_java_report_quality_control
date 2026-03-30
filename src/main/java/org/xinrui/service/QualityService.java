@@ -61,7 +61,7 @@ public class QualityService {
             systemPrompt = "你是一个专业的医疗质控专家，请对下面医疗报告进行质控，并给出修改建议";
         }
 
-        String prompt = systemPrompt + "报告内容为：" + sanitizedText;
+        String prompt = systemPrompt + sanitizedText;
 
         try {
             // 5. 调用DeepSeek API
